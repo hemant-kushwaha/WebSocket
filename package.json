@@ -1,0 +1,24 @@
+{
+  "name": "7.websocket",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/hemant-kushwaha/WebSocket#readme",
+  "bugs": {
+    "url": "https://github.com/hemant-kushwaha/WebSocket/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hemant-kushwaha/WebSocket.git"
+  },
+  "license": "ISC",
+  "author": "Hemant Kushwaha",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "socket.io": "^4.8.3"
+  }
+}
