@@ -45,6 +45,13 @@ messageInput.addEventListener("keypress", function(event) {
 
 function joinRoom(){
     const room = roomNumber.value;
+
+    if(!room){
+        alert("Enter a room number");
+        return;
+    }
+    
+    messageBox.innerHTML = "";
     roomID = room;
     socket.emit('join-room',roomID)
     roomNumber.value='';
