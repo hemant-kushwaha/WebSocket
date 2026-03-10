@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat App</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        background: #f1f5f9;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Chat container */
+
+      .chat-container {
+        width: 400px;
+        height: 600px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      /* Header */
+
+      .chat-header {
+        background: #4f46e5;
+        color: white;
+        padding: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+      }
+      /* Room Join */
+      .room-join {
+        display: flex;
+        gap: 10px;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .room-join input {
+        flex: 1;
+        padding: 8px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+      }
+
+      .room-join button {
+        padding: 8px 12px;
+        border: none;
+        background: #16a34a;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      /* Message area */
+
+      #chat-messages {
+        flex: 1;
+        padding: 15px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      /* Messages */
+
+      .message {
+        max-width: 70%;
+        padding: 10px 14px;
+        border-radius: 12px;
+        font-size: 14px;
+      }
+
+      .received {
+        background: #e2e8f0;
+        align-self: flex-start;
+      }
+
+      .sent {
+        background: #4f46e5;
+        color: white;
+        align-self: flex-end;
+      }
+
+      /* Input area */
+
+      .chat-input {
+        display: flex;
+        padding: 10px;
+        border-top: 1px solid #ddd;
+        gap: 10px;
+      }
+
+      .chat-input input {
+        flex: 1;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        outline: none;
+      }
+
+      .chat-input button {
+        padding: 10px 16px;
+        border: none;
+        background: #4f46e5;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .chat-input button:hover {
+        background: #4338ca;
+      }
+
+      /* Responsive Design */
+
+      /* Tablet */
+      @media (max-width: 768px) {
+        .chat-container {
+          width: 90%;
+          height: 90vh;
+        }
+
+        .chat-header {
+          font-size: 16px;
+          padding: 12px;
+        }
+
+        .message {
+          max-width: 80%;
+          font-size: 13px;
+        }
+      }
+
+      /* Mobile */
+      @media (max-width: 480px) {
+        body {
+          align-items: flex-start;
+          padding: 10px;
+        }
+
+        .chat-container {
+          width: 100%;
+          height: 95vh;
+          border-radius: 10px;
+        }
+
+        .room-join {
+          flex-direction: column;
+        }
+
+        .room-join button {
+          width: 100%;
+        }
+
+        .chat-input {
+          flex-direction: column;
+        }
+
+        .chat-input button {
+          width: 100%;
+        }
+
+        .chat-input input {
+          width: 100%;
+        }
+
+        .message {
+          max-width: 90%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="chat-container">
+      <div class="chat-header">Room Chat</div>
+
+      <div class="room-join">
+        <input type="text" id="room" placeholder="Enter Room Number" />
+        <button onclick="joinRoom()">Join Room</button>
+      </div>
+
+      <div id="chat-messages"></div>
+
+      <div class="chat-input">
+        <input type="text" placeholder="Type a message..." id="msg" />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./client.js"></script>
+  </body>
+</html>
