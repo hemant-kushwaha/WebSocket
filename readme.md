@@ -15,7 +15,7 @@ This project demonstrates **event-driven architecture, WebSocket communication, 
 ---
 # 📸 Screenshots
 
-![Chat UI](../screenshots/chat_demo.png)
+![Chat UI](./screenshots/chat_demo.png)
 
 ---
 # 🎯 Problem Statement
