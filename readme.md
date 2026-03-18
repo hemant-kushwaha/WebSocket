@@ -12,10 +12,10 @@ This project demonstrates **event-driven architecture, WebSocket communication, 
 👉 https://websocket-2-9x1m.onrender.com
 
 ---
----
+
 # 📸 Screenshots
 
-![Chat UI](./screenshots/chat_demo.png)
+![Chat UI](./Screenshots/chat_demo.png)
 
 ---
 # 🎯 Problem Statement
@@ -101,11 +101,14 @@ Redis enables **inter-server communication** using Pub/Sub.
 
 ## 🏗 Scalable Architecture Flow
 
+```text
 Client ──> Server A ──┐
-│
-├──> Redis Pub/Sub ───> All Servers
-│
+                     │
+                     ├──> Redis Pub/Sub ───> All Servers
+                     │
 Client ──> Server B ──┘
+```
+
 
 
 ## 🔄 How It Works
@@ -137,8 +140,6 @@ Client ──> Server B ──┘
 
 - WebSockets
 - Event-driven architecture
-
----
 
 ---
 
