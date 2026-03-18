@@ -6,6 +6,18 @@ This project demonstrates **event-driven architecture, WebSocket communication, 
 
 ---
 
+# 🌐 Live Demo
+
+🚀 Try the app here:  
+👉 https://websocket-2-9x1m.onrender.com
+
+---
+---
+# 📸 Screenshots
+
+![Chat UI](../screenshots/chat_demo.png)
+
+---
 # 🎯 Problem Statement
 
 Traditional web applications rely on **HTTP request-response cycles**, which are inefficient for applications requiring **instant updates**.
@@ -72,7 +84,39 @@ Responsible for:
 - Handling room membership
 - Broadcasting messages efficiently
 
+# ⚡ Distributed Scaling with Redis
+
+To make the application **production-ready and horizontally scalable**, Redis is used as a **message broker**.
+
+## 🚀 Why Redis?
+
+In a multi-server setup:
+
+- Users connected to different servers cannot communicate directly
+- Room events are not shared across instances
+
+Redis enables **inter-server communication** using Pub/Sub.
+
 ---
+
+## 🏗 Scalable Architecture Flow
+
+Client ──> Server A ──┐
+│
+├──> Redis Pub/Sub ───> All Servers
+│
+Client ──> Server B ──┘
+
+
+## 🔄 How It Works
+
+1. Each server connects to Redis
+2. Events are published to Redis channels
+3. Other servers subscribe to these events
+4. Messages are broadcast to all clients across instances
+
+---
+
 
 # ⚙️ Tech Stack
 
@@ -87,6 +131,7 @@ Responsible for:
 - Node.js
 - Express.js
 - Socket.IO
+- Redis (Pub/Sub for horizontal scaling)
 
 ## Networking
 
@@ -94,18 +139,6 @@ Responsible for:
 - Event-driven architecture
 
 ---
-
-# 📂 Project Structure
-
-```
-chat-app/
-│
-├── index.html        # Chat UI
-├── client.js         # Client-side socket logic
-├── server.js         # Express + Socket.IO server
-├── package.json
-└── README.md
-```
 
 ---
 
@@ -118,6 +151,7 @@ chat-app/
 - ⌨️ Send messages using Enter key
 - 📱 Fully responsive UI
 - 🎨 Clean and simple chat interface
+- 🌐 Scalable across multiple servers using Redis Pub/Sub
 
 ---
 
